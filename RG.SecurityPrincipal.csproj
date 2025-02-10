@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>${AssemblyName}</Title>
+    <Version>1.0.0</Version>
+    <Authors>Ronny Gunawan</Authors>
+    <Description>Simple primitive types for security principal.</Description>
+    <Copyright>(C) 2025 Ronny Gunawan</Copyright>
+    <PackageProjectUrl>https://github.com/ronnygunawan/RG.SecurityPrincipal</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ronnygunawan/RG.SecurityPrincipal</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+</Project>

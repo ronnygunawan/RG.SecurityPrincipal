@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RG.SecurityPrincipal.csproj" />
+    <ProjectReference Include="..\RG.SecurityPrincipal\RG.SecurityPrincipal.csproj" />
   </ItemGroup>
 
 </Project>

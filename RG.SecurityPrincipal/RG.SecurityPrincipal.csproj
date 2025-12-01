@@ -17,9 +17,4 @@
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="RG.SecurityPrincipal.Tests\**" />
-    <None Remove="RG.SecurityPrincipal.Tests\**" />
-  </ItemGroup>
-
 </Project>

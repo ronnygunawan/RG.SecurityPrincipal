@@ -32,8 +32,8 @@ jobs:
     
     - name: Update project version
       run: |
-        sed -i "s|<Version>.*</Version>|<Version>${{ steps.get_version.outputs.version }}</Version>|g" RG.SecurityPrincipal.csproj
-        cat RG.SecurityPrincipal.csproj
+        sed -i "s|<Version>.*</Version>|<Version>${{ steps.get_version.outputs.version }}</Version>|g" RG.SecurityPrincipal/RG.SecurityPrincipal.csproj
+        cat RG.SecurityPrincipal/RG.SecurityPrincipal.csproj
     
     - name: Restore dependencies
       run: dotnet restore

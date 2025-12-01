@@ -118,9 +118,11 @@ public interface IOrderService
 }
 
 // Usage - implicit conversion handles the type
-public async Task HandleCustomerRequestAsync(CustomerSession session)
+public async Task<List<Order>> HandleCustomerRequestAsync(
+    CustomerSession session,
+    CancellationToken cancellationToken)
 {
-    var orders = await _orderService.GetOrderHistoryAsync(
+    return await _orderService.GetOrderHistoryAsync(
         session, // Implicitly converts to Either<CustomerSession, SupportAgentSession>
         session.CustomerId,
         cancellationToken);

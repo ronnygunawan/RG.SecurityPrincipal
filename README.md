@@ -1,6 +1,6 @@
 # RG.SecurityPrincipal
 
-Simple primitive types for security principal, providing compile-time authorization for .NET applications.
+Simple primitive types for implementing security principals, providing compile-time authorization for .NET applications.
 
 ## Overview
 
@@ -107,13 +107,14 @@ public class OrderService
     }
     
     public async Task<PaginatedList<Product>> SearchProductsAsync(
+        Anyone anyone,
         string query,
         int page,
         int pageSize,
         CancellationToken cancellationToken)
     {
         return await _repository.SearchAsync(
-            SecurityPrincipal.Anyone,
+            anyone,
             query,
             page,
             pageSize,

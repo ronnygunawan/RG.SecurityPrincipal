@@ -1,5 +1,7 @@
 # RG.SecurityPrincipal
 
+[![NuGet](https://img.shields.io/nuget/v/RG.SecurityPrincipal.svg)](https://www.nuget.org/packages/RG.SecurityPrincipal/)
+
 Simple primitive types for implementing security principals, providing compile-time authorization for .NET applications.
 
 ## Overview

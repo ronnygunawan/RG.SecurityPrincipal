@@ -66,29 +66,26 @@ Task<Order> GetOrderAsync(
 ### Repository Pattern
 
 ```csharp
-public interface IOrderRepository
-{
-    // Only customers can get their orders
-    Task<Order> GetAsync(
-        CustomerSession customerSession,
-        OrderId orderId,
-        CancellationToken cancellationToken);
-    
-    // Only merchants can ship orders
-    Task<ShippedOrder> ShipAsync(
-        MerchantSession merchantSession,
-        OrderId orderId,
-        ShipmentDetails shipmentDetails,
-        CancellationToken cancellationToken);
-    
-    // Anyone can search for products
-    Task<PaginatedList<Product>> SearchAsync(
-        Anyone anyone,
-        string searchQuery,
-        int page,
-        int pageSize,
-        CancellationToken cancellationToken);
-}
+// Only customers can get their orders
+Task<Order> GetAsync(
+    CustomerSession customerSession,
+    OrderId orderId,
+    CancellationToken cancellationToken);
+
+// Only merchants can ship orders
+Task<ShippedOrder> ShipAsync(
+    MerchantSession merchantSession,
+    OrderId orderId,
+    ShipmentDetails shipmentDetails,
+    CancellationToken cancellationToken);
+
+// Anyone can search for products
+Task<PaginatedList<Product>> SearchAsync(
+    Anyone anyone,
+    string searchQuery,
+    int page,
+    int pageSize,
+    CancellationToken cancellationToken);
 ```
 
 ### Service Layer
@@ -104,21 +101,6 @@ public class OrderService
         CancellationToken cancellationToken)
     {
         return await _repository.GetAsync(session, orderId, cancellationToken);
-    }
-    
-    public async Task<PaginatedList<Product>> SearchProductsAsync(
-        Anyone anyone,
-        string query,
-        int page,
-        int pageSize,
-        CancellationToken cancellationToken)
-    {
-        return await _repository.SearchAsync(
-            anyone,
-            query,
-            page,
-            pageSize,
-            cancellationToken);
     }
 }
 ```
@@ -136,7 +118,7 @@ public interface IOrderService
 }
 
 // Usage - implicit conversion handles the type
-public async Task HandleCustomerRequest(CustomerSession session)
+public async Task HandleCustomerRequestAsync(CustomerSession session)
 {
     var orders = await _orderService.GetOrderHistoryAsync(
         session, // Implicitly converts to Either<CustomerSession, SupportAgentSession>

@@ -1,3 +1,3 @@
 ﻿namespace RG.SecurityPrincipal {
-    public interface ISecurityPrincipal;
+    internal interface ISecurityPrincipal;
 }

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
@@ -15,6 +15,21 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    
+    <!-- Source-only package configuration -->
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <ContentTargetFolders>contentFiles</ContentTargetFolders>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Include source files in the package -->
+    <Content Include="*.cs" Exclude="AssemblyInfo.cs;obj\**\*.cs;bin\**\*.cs">
+      <Pack>true</Pack>
+      <PackagePath>contentFiles/cs/any;content/cs/any</PackagePath>
+      <BuildAction>Compile</BuildAction>
+    </Content>
+  </ItemGroup>
 
 </Project>
